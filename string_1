@@ -1,0 +1,35 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+int main() {
+    //input declaration where s is used for swapping s1 and s2 
+    string s1,s2,s;
+   //Taking input
+    cin >> s1;
+    cin >> s2;
+    //to keep smaller string in s1 and larger string in s2
+    if(s1<s2) {
+        s  = s1;
+        s1 = s2;
+        s2 = s;
+    }
+    //flag is used for exists a solution or not to identify.
+    int flag=1;
+    int len = s1.length();
+    //last characters differnce used for checking previous character in 
+    //loop and we update the x and y continuously.
+    int x = s1[len-1]-s2[len-1];
+    for(int i=len-2;i>=0;i--) {
+        int y = s1[i]-s2[i];
+        if(y>=x) {
+            x = y;
+        }
+        else {
+            flag=0;
+            break;
+        }
+    }
+    if(flag==1) cout << "YES";
+    else cout << "NO";
+    
+}
