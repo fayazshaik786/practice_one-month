@@ -1,0 +1,28 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+int main() {
+    int n;
+    cin >> n;
+    //used vectors to get understanding of how to use vectors
+    //vector is dyanmic array
+    //push_back is to insert elements in vector
+    vector<int> v;
+    for(int i=0;i<n;i++) {
+        int x;
+        cin >> x;
+        v.push_back(x);
+    }
+    int max_=v[n-1];
+    vector<int> ans;
+    ans.push_back(v[n-1]);
+    for(int i=n-2;i>=0;i--) {
+        if(v[i]>=max_) {
+            ans.push_back(v[i]);
+            max_ = v[i];
+        }
+    }
+    for(int i=ans.size()-1;i>=0;i--) {
+        cout << ans[i] << " ";
+    }
+}
